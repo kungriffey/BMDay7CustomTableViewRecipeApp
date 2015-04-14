@@ -19,6 +19,7 @@
   NSArray *recipeNames;
   NSArray *recipeImages;
   NSArray *recipePrepTime;
+  BOOL recipeChecked[16];
 }
 
 - (void)viewDidLoad {
@@ -65,6 +66,14 @@
   cell.prepTimeLabel.text = [recipePrepTime objectAtIndex:indexPath.row];
   cell.thumbnailImageView.image = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
   
+  //Solving the duplicate checkmark issue
+  if (recipeChecked[indexPath.row]) {
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+  } else{
+    cell.accessoryType = UITableViewCellAccessoryNone;
+  }
+  
+  
   return cell;
 }
 
@@ -72,8 +81,17 @@
   NSString *selectedRecipe = [recipeNames objectAtIndex:indexPath.row];
   UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Row Selected" message:selectedRecipe delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
   
-  //display Alert
+  //Display Alert
   [messageAlert show];
+  
+  //Adding a checkmark
+  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+  cell.accessoryType = UITableViewCellAccessoryCheckmark;
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  
+  //Solving the dupicate checkmark issue
+  recipeChecked [indexPath.row] = YES;
+  
 }
 
 
