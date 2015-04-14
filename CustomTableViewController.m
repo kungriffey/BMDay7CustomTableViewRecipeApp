@@ -84,14 +84,22 @@
   //Display Alert
   [messageAlert show];
   
+  
   //Adding a checkmark
+
   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-  cell.accessoryType = UITableViewCellAccessoryCheckmark;
+  
+  //toggling the checkmark
+  if (recipeChecked [indexPath.row]) {
+    recipeChecked [indexPath.row] = NO;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+  } else {
+    recipeChecked [indexPath.row] = YES;
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+  }
+  
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  
-  //Solving the dupicate checkmark issue
-  recipeChecked [indexPath.row] = YES;
-  
+
 }
 
 
