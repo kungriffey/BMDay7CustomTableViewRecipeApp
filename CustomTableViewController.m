@@ -111,8 +111,7 @@
   [recipeImages removeObjectAtIndex:indexPath.row];
   
   //Reload the Table View
-  [tableView reloadData];
-  
+  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 
