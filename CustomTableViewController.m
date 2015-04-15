@@ -16,20 +16,20 @@
 @implementation CustomTableViewController
 {
   
-  NSArray *recipeNames;
-  NSArray *recipeImages;
-  NSArray *recipePrepTime;
+  NSMutableArray *recipeNames;
+  NSMutableArray *recipeImages;
+  NSMutableArray *recipePrepTime;
   BOOL recipeChecked[16];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-    recipeNames = @[@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini"];
+    recipeNames = [NSMutableArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
   
-    recipeImages = @[@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg",@"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg"];
+    recipeImages = [NSMutableArray arrayWithObjects:@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg",@"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg", nil];
   
-    recipePrepTime = @[@"30 minutes", @"40 minutes", @"30 minutes", @"15 minutes", @"20 minutes", @"30 minutes", @"25 minutes", @"10 minutes", @"30 minutes", @"60 minutes", @"40 minutes",@"60 minutes", @"25 minutes", @"30 minutes", @"30 minutes", @"15 minutes"];
+    recipePrepTime = [NSMutableArray arrayWithObjects:@"30 minutes", @"40 minutes", @"30 minutes", @"15 minutes", @"20 minutes", @"30 minutes", @"25 minutes", @"10 minutes", @"30 minutes", @"60 minutes", @"40 minutes",@"60 minutes", @"25 minutes", @"30 minutes", @"30 minutes", @"15 minutes", nil];
   
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -105,6 +105,10 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:
 (UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  
+  [recipeNames removeObjectAtIndex:indexPath.row];
+  [recipePrepTime removeObjectAtIndex:indexPath.row];
+  [recipeImages removeObjectAtIndex:indexPath.row];
   
 }
 
