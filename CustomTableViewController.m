@@ -110,6 +110,9 @@
   [recipePrepTime removeObjectAtIndex:indexPath.row];
   [recipeImages removeObjectAtIndex:indexPath.row];
   
+  //Reload the Table View
+  [tableView reloadData];
+  
 }
 
 
