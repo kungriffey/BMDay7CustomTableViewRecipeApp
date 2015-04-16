@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RHT-bJ-XUq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="v0S-mC-jNd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--Custom Table View Controller-->
+        <!--Recipes-->
         <scene sceneID="Qxc-zs-8qI">
             <objects>
                 <tableViewController id="RHT-bJ-XUq" customClass="CustomTableViewController" sceneMemberID="viewController">
@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="yBN-YC-SBR" customClass="CustomTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="yBN-YC-SBR" customClass="CustomTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yBN-YC-SBR" id="fKj-A4-mvh">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -39,6 +39,7 @@
                                     <outlet property="nameLabel" destination="YEj-3Z-Twg" id="SkD-o1-Y3v"/>
                                     <outlet property="prepTimeLabel" destination="zso-94-xye" id="NlU-6S-92g"/>
                                     <outlet property="thumbnailImageView" destination="9YK-MI-6n6" id="BQL-qi-lyG"/>
+                                    <segue destination="BFw-W3-LUS" kind="push" id="7pc-Dz-teQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -47,8 +48,54 @@
                             <outlet property="delegate" destination="RHT-bJ-XUq" id="AfN-wp-kbM"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Recipes" id="Ybu-ZJ-L1M"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dde-ZH-jlg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="657" y="353"/>
+        </scene>
+        <!--Recipe Detail-->
+        <scene sceneID="3eA-71-gQL">
+            <objects>
+                <viewController id="BFw-W3-LUS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VhC-K3-eW7"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZXk-JI-K4U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AvB-nt-zRK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g4-jr-rjv">
+                                <rect key="frame" x="16" y="273" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recipe Detail" id="bbo-43-imb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Oz-ML-UKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="353"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="u6r-lG-E6O">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v0S-mC-jNd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fj4-jW-ugO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RHT-bJ-XUq" kind="relationship" relationship="rootViewController" id="5gU-WZ-UNb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wYT-dg-i3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="125" y="353"/>
         </scene>
