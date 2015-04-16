@@ -15,7 +15,7 @@
 		2A5335AC1ADD94A900187084 /* BMDaySevenCustomTableAssignmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5335AB1ADD94A900187084 /* BMDaySevenCustomTableAssignmentTests.m */; };
 		2A5335B81ADD962400187084 /* CustomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5335B71ADD962400187084 /* CustomTableViewController.m */; };
 		2A5335BC1ADDA35F00187084 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5335BB1ADDA35F00187084 /* CustomTableViewCell.m */; };
-		2A5336651AE033CC00187084 /* recipes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5336641AE033CC00187084 /* recipes.plist */; };
+		2A5336671AE034E900187084 /* recipes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5336661AE034E900187084 /* recipes.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		2A5335B71ADD962400187084 /* CustomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewController.m; sourceTree = "<group>"; };
 		2A5335BA1ADDA35F00187084 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		2A5335BB1ADDA35F00187084 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
-		2A5336641AE033CC00187084 /* recipes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = recipes.plist; sourceTree = "<group>"; };
+		2A5336661AE034E900187084 /* recipes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = recipes.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 		2A5335831ADD94A800187084 = {
 			isa = PBXGroup;
 			children = (
-				2A5336641AE033CC00187084 /* recipes.plist */,
+				2A5336661AE034E900187084 /* recipes.plist */,
 				2A5335B91ADDA33C00187084 /* View */,
 				2A5335B51ADD95FE00187084 /* Controller */,
 				2A53358E1ADD94A800187084 /* BMDaySevenCustomTableAssignment */,
@@ -225,7 +225,7 @@
 			files = (
 				2A53359B1ADD94A900187084 /* Main.storyboard in Resources */,
 				2A5335A01ADD94A900187084 /* LaunchScreen.xib in Resources */,
-				2A5336651AE033CC00187084 /* recipes.plist in Resources */,
+				2A5336671AE034E900187084 /* recipes.plist in Resources */,
 				2A53359D1ADD94A900187084 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
