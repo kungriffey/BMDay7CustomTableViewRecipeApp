@@ -39,7 +39,7 @@
                                     <outlet property="nameLabel" destination="YEj-3Z-Twg" id="SkD-o1-Y3v"/>
                                     <outlet property="prepTimeLabel" destination="zso-94-xye" id="NlU-6S-92g"/>
                                     <outlet property="thumbnailImageView" destination="9YK-MI-6n6" id="BQL-qi-lyG"/>
-                                    <segue destination="BFw-W3-LUS" kind="push" id="7pc-Dz-teQ"/>
+                                    <segue destination="BFw-W3-LUS" kind="push" identifier="showRecipeDetail" id="7pc-Dz-teQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -57,7 +57,7 @@
         <!--Recipe Detail-->
         <scene sceneID="3eA-71-gQL">
             <objects>
-                <viewController id="BFw-W3-LUS" sceneMemberID="viewController">
+                <viewController id="BFw-W3-LUS" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VhC-K3-eW7"/>
                         <viewControllerLayoutGuide type="bottom" id="ZXk-JI-K4U"/>
@@ -76,6 +76,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe Detail" id="bbo-43-imb"/>
+                    <connections>
+                        <outlet property="recipeDetail" destination="6g4-jr-rjv" id="1WS-Wy-gIl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oz-ML-UKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
