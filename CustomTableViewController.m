@@ -92,10 +92,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   NSString *selectedRecipe = [recipeNames objectAtIndex:indexPath.row];
-  UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Row Selected" message:selectedRecipe delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+  //UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Row Selected" message:selectedRecipe delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
   
   //Display Alert
-  [messageAlert show];
+  //[messageAlert show];
   
   
   //Adding a checkmark
@@ -133,6 +133,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     DetailViewController *destViewController = segue.destinationViewController;
     destViewController.recipeName = [recipeNames objectAtIndex:indexPath.row];
+    destViewController.recipeImage = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
   }
 }
 

@@ -18,6 +18,8 @@
 		2A5336671AE034E900187084 /* recipes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5336661AE034E900187084 /* recipes.plist */; };
 		2A53366A1AE05B2100187084 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5336691AE05B2100187084 /* DetailViewController.m */; };
 		2A53366D1AE14CC100187084 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A53366C1AE14CC100187084 /* AboutViewController.m */; };
+		2A5336701AE14F3600187084 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A53366E1AE14F3600187084 /* about.html */; };
+		2A5336711AE14F3600187084 /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A53366F1AE14F3600187084 /* about.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		2A5336691AE05B2100187084 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		2A53366B1AE14CC100187084 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		2A53366C1AE14CC100187084 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		2A53366E1AE14F3600187084 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		2A53366F1AE14F3600187084 /* about.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = about.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 		2A53358F1ADD94A800187084 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A53366E1AE14F3600187084 /* about.html */,
+				2A53366F1AE14F3600187084 /* about.jpg */,
 				2A5335901ADD94A800187084 /* Info.plist */,
 				2A5335911ADD94A900187084 /* main.m */,
 			);
@@ -236,7 +242,9 @@
 				2A53359B1ADD94A900187084 /* Main.storyboard in Resources */,
 				2A5335A01ADD94A900187084 /* LaunchScreen.xib in Resources */,
 				2A5336671AE034E900187084 /* recipes.plist in Resources */,
+				2A5336701AE14F3600187084 /* about.html in Resources */,
 				2A53359D1ADD94A900187084 /* Images.xcassets in Resources */,
+				2A5336711AE14F3600187084 /* about.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

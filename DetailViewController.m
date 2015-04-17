@@ -18,6 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
   self.recipeDetail.text = self.recipeName;
+  //image view
+  self.recipeImageOutlet.image = self.recipeImage;
+  self.navigationItem.title = (self.recipeDetail.text);
   
 }
 

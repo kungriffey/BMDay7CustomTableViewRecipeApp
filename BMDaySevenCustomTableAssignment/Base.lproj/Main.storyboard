@@ -117,12 +117,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gUO-Rg-U8q">
+                                <rect key="frame" x="16" y="89" width="288" height="166"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe Detail" id="bbo-43-imb"/>
                     <connections>
                         <outlet property="recipeDetail" destination="6g4-jr-rjv" id="1WS-Wy-gIl"/>
+                        <outlet property="recipeImageOutlet" destination="gUO-Rg-U8q" id="QSv-13-sMt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oz-ML-UKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
