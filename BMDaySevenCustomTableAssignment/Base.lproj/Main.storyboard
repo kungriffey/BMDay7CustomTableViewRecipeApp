@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="664" y="1074"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="9jS-rA-5YR">
             <objects>
-                <viewController id="42t-di-MiS" sceneMemberID="viewController">
+                <viewController id="42t-di-MiS" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mxb-Kt-r5s"/>
                         <viewControllerLayoutGuide type="bottom" id="rwX-0A-Ker"/>
@@ -82,9 +82,18 @@
                     <view key="view" contentMode="scaleToFill" id="S2s-RA-apI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmr-wm-0Zm">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ySV-Yo-J1B"/>
+                    <connections>
+                        <outlet property="aboutWebView" destination="pmr-wm-0Zm" id="TkR-sq-f2e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wM4-r5-Fwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
