@@ -84,11 +84,11 @@
             </objects>
             <point key="canvasLocation" x="1616" y="353"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="u6r-lG-E6O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v0S-mC-jNd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="D7y-vK-ju0"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="D7y-vK-ju0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fj4-jW-ugO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
