@@ -13,6 +13,8 @@
 @property (strong, nonatomic) NSString *recipeName;
 @property (strong, nonatomic) NSString *recipeImage;
 @property (strong, nonatomic) NSString *prepTime;
+@property (strong, nonatomic) NSArray *ingredients;
+
 
 
 @end
