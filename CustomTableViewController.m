@@ -209,9 +209,11 @@
 //segue for the detail view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
+    
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     DetailViewController *destViewController = segue.destinationViewController;
-    destViewController.recipeName = [recipeNames objectAtIndex:indexPath.row];
+    Recipe *recipe = [recipes objectAtIndex:indexPath.row];
+    destViewController.recipeName = recipe.recipeName;
     destViewController.recipeImage = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
   }
 }
