@@ -31,31 +31,37 @@
   recipe1.recipeName = @"Egg Benedict";
   recipe1.prepTime = @"30 min";
   recipe1.recipeImage = @"egg_benedict.jpg";
+  recipe1.ingredients = [NSArray arrayWithObjects:@"2 fresh English muffins", @"4 eggs", @"4 rashers of back bacon", @"2 egg yolks", @"1 tbsp of lemon juice",@"125 g of butter", @"salt and pepper", nil];
   
   Recipe *recipe2 = [Recipe new];
   recipe2.recipeName = @"Mushroom Risotto";
   recipe2.prepTime = @"30 min";
   recipe2.recipeImage = @"mushroom_risotto.jpg";
+  recipe2.ingredients = [NSArray arrayWithObjects:@"1 tbsp dried porcini mushroom", @"2 tbsp olive oil", @"1 onion, chopped", @"2 garlic cloves", @"350g/12oz arborio rice", @"1.2 litres/2 pints hot vegetable stock", @"salt and pepper", @"25g/1oz butter", nil];
   
   Recipe *recipe3 = [Recipe new];
   recipe3.recipeName = @"Full Breakfast";
   recipe3.prepTime = @"20 min";
   recipe3.recipeImage = @"full_breakfast.jpg";
+  recipe3.ingredients = [NSArray arrayWithObjects:@"2 sausages", @"100 grams of mushrooms", @"2 rashers of bacon", @"2 eggs", @"150 grams of baked beans", @"Vegetable oil", nil];
   
   Recipe *recipe4 = [Recipe new];
   recipe4.recipeName = @"Hamburger";
   recipe4.prepTime = @"30 min";
   recipe4.recipeImage = @"hamburger.jpg";
+  recipe4.ingredients = [NSArray arrayWithObjects:@"400g of ground beef", @"1/4 onion (minced)", @"1 tbsp butter", @"hamburger bun", @"1 teaspoon dry mustard", @"Salt and pepper", nil];
   
   Recipe *recipe5 = [Recipe new];
   recipe5.recipeName = @"Ham and Egg Sandwich";
   recipe5.prepTime = @"10 min";
   recipe5.recipeImage = @"ham_and_egg_sandwich.jpg";
+  recipe5.ingredients = [NSArray arrayWithObjects:@"1 unsliced loaf (1 pound) French bread", @"4 tablespoons butter", @"2 tablespoons mayonnaise", @"8 thin slices deli ham", @"1 large tomato, sliced", @"1 small onion", @"8 eggs", @"8 slices cheddar cheese", nil];
   
   Recipe *recipe6 = [Recipe new];
   recipe6.recipeName = @"Creme Brelee";
   recipe6.prepTime = @"1 hour";
   recipe6.recipeImage = @"creme_brelee.jpg";
+  recipe6.ingredients = [NSArray arrayWithObjects:@"1 quart heavy cream", @"1 vanilla bean, split and scraped", @"1 cup vanilla sugar", @"6 large egg yolks", @"2 quarts hot water", nil];
   
   Recipe *recipe7 = [Recipe new];
   recipe7.recipeName = @"White Chocolate Donut";
