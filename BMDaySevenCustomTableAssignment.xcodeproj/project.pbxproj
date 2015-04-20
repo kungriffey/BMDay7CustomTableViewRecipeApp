@@ -20,6 +20,7 @@
 		2A53366D1AE14CC100187084 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A53366C1AE14CC100187084 /* AboutViewController.m */; };
 		2A5336701AE14F3600187084 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A53366E1AE14F3600187084 /* about.html */; };
 		2A5336711AE14F3600187084 /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A53366F1AE14F3600187084 /* about.jpg */; };
+		2A53374B1AE5713E00187084 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A53374A1AE5713E00187084 /* Recipe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		2A53366C1AE14CC100187084 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		2A53366E1AE14F3600187084 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		2A53366F1AE14F3600187084 /* about.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = about.jpg; sourceTree = "<group>"; };
+		2A5337491AE5713E00187084 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		2A53374A1AE5713E00187084 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,7 @@
 		2A5335831ADD94A800187084 = {
 			isa = PBXGroup;
 			children = (
+				2A5337481AE5712900187084 /* Model */,
 				2A5336661AE034E900187084 /* recipes.plist */,
 				2A5335B91ADDA33C00187084 /* View */,
 				2A5335B51ADD95FE00187084 /* Controller */,
@@ -157,6 +161,15 @@
 				2A5335BB1ADDA35F00187084 /* CustomTableViewCell.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		2A5337481AE5712900187084 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2A5337491AE5713E00187084 /* Recipe.h */,
+				2A53374A1AE5713E00187084 /* Recipe.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A53366D1AE14CC100187084 /* AboutViewController.m in Sources */,
+				2A53374B1AE5713E00187084 /* Recipe.m in Sources */,
 				2A53366A1AE05B2100187084 /* DetailViewController.m in Sources */,
 				2A5335951ADD94A900187084 /* AppDelegate.m in Sources */,
 				2A5335B81ADD962400187084 /* CustomTableViewController.m in Sources */,

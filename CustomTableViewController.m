@@ -9,13 +9,14 @@
 #import "CustomTableViewController.h"
 #import "CustomTableViewCell.h"
 #import "DetailViewController.h"
-
+#import "Recipe.h"
 @interface CustomTableViewController ()
 
 @end
 
 @implementation CustomTableViewController
 {
+  NSArray *recipes;
   
   NSMutableArray *recipeNames;
   NSMutableArray *recipeImages;
@@ -24,13 +25,89 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
+  // Initialize the recipes array
+  Recipe *recipe1 = [Recipe new];
+  recipe1.recipeName = @"Egg Benedict";
+  recipe1.prepTime = @"30 min";
+  recipe1.recipeImage = @"egg_benedict.jpg";
   
-//    recipeNames = [NSMutableArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
-//  
-//    recipeImages = [NSMutableArray arrayWithObjects:@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg",@"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg", nil];
-//  
-//    recipePrepTime = [NSMutableArray arrayWithObjects:@"30 minutes", @"40 minutes", @"30 minutes", @"15 minutes", @"20 minutes", @"30 minutes", @"25 minutes", @"10 minutes", @"30 minutes", @"60 minutes", @"40 minutes",@"60 minutes", @"25 minutes", @"30 minutes", @"30 minutes", @"15 minutes", nil];
+  Recipe *recipe2 = [Recipe new];
+  recipe2.recipeName = @"Mushroom Risotto";
+  recipe2.prepTime = @"30 min";
+  recipe2.recipeImage = @"mushroom_risotto.jpg";
+  
+  Recipe *recipe3 = [Recipe new];
+  recipe3.recipeName = @"Full Breakfast";
+  recipe3.prepTime = @"20 min";
+  recipe3.recipeImage = @"full_breakfast.jpg";
+  
+  Recipe *recipe4 = [Recipe new];
+  recipe4.recipeName = @"Hamburger";
+  recipe4.prepTime = @"30 min";
+  recipe4.recipeImage = @"hamburger.jpg";
+  
+  Recipe *recipe5 = [Recipe new];
+  recipe5.recipeName = @"Ham and Egg Sandwich";
+  recipe5.prepTime = @"10 min";
+  recipe5.recipeImage = @"ham_and_egg_sandwich.jpg";
+  
+  Recipe *recipe6 = [Recipe new];
+  recipe6.recipeName = @"Creme Brelee";
+  recipe6.prepTime = @"1 hour";
+  recipe6.recipeImage = @"creme_brelee.jpg";
+  
+  Recipe *recipe7 = [Recipe new];
+  recipe7.recipeName = @"White Chocolate Donut";
+  recipe7.prepTime = @"45 min";
+  recipe7.recipeImage = @"white_chocolate_donut.jpg";
+  
+  Recipe *recipe8 = [Recipe new];
+  recipe8.recipeName = @"Starbucks Coffee";
+  recipe8.prepTime = @"5 min";
+  recipe8.recipeImage = @"starbucks_coffee.jpg";
+  
+  Recipe *recipe9 = [Recipe new];
+  recipe9.recipeName = @"Vegetable Curry";
+  recipe9.prepTime = @"30 min";
+  recipe9.recipeImage = @"vegetable_curry.jpg";
+  
+  Recipe *recipe10 = [Recipe new];
+  recipe10.recipeName = @"Instant Noodle with Egg";
+  recipe10.prepTime = @"8 min";
+  recipe10.recipeImage = @"instant_noodle_with_egg.jpg";
+  
+  Recipe *recipe11 = [Recipe new];
+  recipe11.recipeName = @"Noodle with BBQ Pork";
+  recipe11.prepTime = @"20 min";
+  recipe11.recipeImage = @"noodle_with_bbq_pork.jpg";
+  
+  Recipe *recipe12 = [Recipe new];
+  recipe12.recipeName = @"Japanese Noodle with Pork";
+  recipe12.prepTime = @"20 min";
+  recipe12.recipeImage = @"japanese_noodle_with_pork.jpg";
+  
+  Recipe *recipe13 = [Recipe new];
+  recipe13.recipeName = @"Green Tea";
+  recipe13.prepTime = @"5 min";
+  recipe13.recipeImage = @"green_tea.jpg";
+  
+  Recipe *recipe14 = [Recipe new];
+  recipe14.recipeName = @"Thai Shrimp Cake";
+  recipe14.prepTime = @"1.5 hours";
+  recipe14.recipeImage = @"thai_shrimp_cake.jpg";
+  
+  Recipe *recipe15 = [Recipe new];
+  recipe15.recipeName = @"Angry Birds Cake";
+  recipe15.prepTime = @"4 hours";
+  recipe15.recipeImage = @"angry_birds_cake.jpg";
+  
+  Recipe *recipe16 = [Recipe new];
+  recipe16.recipeName = @"Ham and Cheese Panini";
+  recipe16.prepTime = @"10 min";
+  recipe16.recipeImage = @"ham_and_cheese_panini.jpg";
+  
+  
   
   //Using Plist
   //Retrieve the plist path
