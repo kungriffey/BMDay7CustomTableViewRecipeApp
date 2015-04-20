@@ -214,7 +214,7 @@
     DetailViewController *destViewController = segue.destinationViewController;
     Recipe *recipe = [recipes objectAtIndex:indexPath.row];
     destViewController.recipeName = recipe.recipeName;
-    destViewController.recipeImage = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
+    destViewController.recipeImage = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]]; 
   }
 }
 
