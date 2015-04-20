@@ -176,7 +176,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  NSString *selectedRecipe = [recipeNames objectAtIndex:indexPath.row];
+  //NSString *selectedRecipe = [recipeNames objectAtIndex:indexPath.row];
   //UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Row Selected" message:selectedRecipe delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
   
   //Display Alert
@@ -219,8 +219,8 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     DetailViewController *destViewController = segue.destinationViewController;
     Recipe *recipe = [recipes objectAtIndex:indexPath.row];
-    destViewController.recipeName = recipe.recipeName;
-    destViewController.recipeImage = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]]; 
+    destViewController.recipe = recipe;
+
   }
 }
 
