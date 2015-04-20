@@ -137,7 +137,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
   
-  return [recipeNames count];
+  return [recipes count];
   
 }
 
@@ -151,10 +151,12 @@
   
   static NSString *cellIdentifier = @"Cell";
   CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-  
-  cell.nameLabel.text = [recipeNames objectAtIndex:indexPath.row];
-  cell.prepTimeLabel.text = [recipePrepTime objectAtIndex:indexPath.row];
-  cell.thumbnailImageView.image = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
+
+  //update the cell from the recipes array
+  Recipe *recipe = [recipes objectAtIndex:indexPath.row];
+  cell.nameLabel.text = recipe.recipeName;
+  cell.thumbnailImageView.image = [UIImage imageNamed:recipe.recipeImage];
+  cell.prepTimeLabel.text = recipe.prepTime;
   
   //Solving the duplicate checkmark issue
   if (recipeChecked[indexPath.row]) {
