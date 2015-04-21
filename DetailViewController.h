@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Recipe.h"
+
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *recipeDetail;

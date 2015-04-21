@@ -9,7 +9,7 @@
 #import "CustomTableViewController.h"
 #import "CustomTableViewCell.h"
 #import "DetailViewController.h"
-#import "Recipe.h"
+
 @interface CustomTableViewController ()
 
 @end
@@ -17,20 +17,22 @@
 @implementation CustomTableViewController
 {
   NSArray *recipes;
-  NSArray *searchResults;
-  
-  NSMutableArray *recipeNames;
-  NSMutableArray *recipeImages;
-  NSMutableArray *recipePrepTime;
-  BOOL recipeChecked[16];
-  
-  
   UISearchController *searchController;
+  NSArray *searchResults;
+
+//
+//  NSMutableArray *recipeNames;
+//  NSMutableArray *recipeImages;
+//  NSMutableArray *recipePrepTime;
+//  BOOL recipeChecked[16];
+  
+  
 
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
   // Initialize the recipes array
   Recipe *recipe1 = [Recipe new];
   recipe1.recipeName = @"Egg Benedict";
@@ -133,33 +135,40 @@
   
   //Using Plist
   //Retrieve the plist path
-  NSString *path = [[NSBundle mainBundle]pathForResource:@"recipes" ofType:@"plist"];
+//  NSString *path = [[NSBundle mainBundle]pathForResource:@"recipes" ofType:@"plist"];
   //create a dictionary that connects to the file we made
-  NSMutableDictionary *dict = [[NSMutableDictionary alloc]initWithContentsOfFile:path];
+//  NSMutableDictionary *dict = [[NSMutableDictionary alloc]initWithContentsOfFile:path];
   
   //specify key value pairs for the dictionary and the arrays in the plist
-  recipeNames = [dict objectForKey:@"Name"];
-  recipeImages = [dict objectForKey:@"Image"];
-  recipePrepTime = [dict objectForKey:@"PrepTime"];
+//  recipeNames = [dict objectForKey:@"Name"];
+//  recipeImages = [dict objectForKey:@"Image"];
+//  recipePrepTime = [dict objectForKey:@"PrepTime"];
   
   
   //Search Controller
-  
-  searchController  = [[UISearchController alloc]
-                       initWithSearchResultsController:nil];
+  searchController = [[UISearchController alloc]initWithSearchResultsController:nil];
   [searchController.searchBar sizeToFit];
+  searchController.searchResultsUpdater = self;
   self.tableView.tableHeaderView = searchController.searchBar;
   self.definesPresentationContext = YES;
-  
-  
-  
-  
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  searchController.dimsBackgroundDuringPresentation = NO;
+
 }
+
+
+#pragma mark - Search Bar
+
+- (void)filterContentForSearchText:(NSString *)searchText {
+  
+  NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+  searchResults = [recipes filteredArrayUsingPredicate:resultPredicate];
+}
+
+- (void) updateSearchResultsForSearchController:(UISearchController *)searchController1 {
+  [self filterContentForSearchText:searchController1.searchBar.text];
+  [self.tableView reloadData];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -168,16 +177,18 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  
-  return [recipes count];
-  
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  // Return the number of sections.
+  return 1;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  if (searchController.active) {
+    return searchResults.count;
+  } else {
+    return [recipes count];
+  }
+  
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -186,23 +197,29 @@
   CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 
   //update the cell from the recipes array
-  Recipe *recipe = [recipes objectAtIndex:indexPath.row];
+  Recipe *recipe;
+  if (searchController.active) {
+    recipe = [searchResults objectAtIndex:indexPath.row];
+  } else {
+    recipe = [recipes objectAtIndex:indexPath.row];
+  }
+  
   cell.nameLabel.text = recipe.recipeName;
   cell.thumbnailImageView.image = [UIImage imageNamed:recipe.recipeImage];
   cell.prepTimeLabel.text = recipe.prepTime;
   
-  //Solving the duplicate checkmark issue
-  if (recipeChecked[indexPath.row]) {
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-  } else{
-    cell.accessoryType = UITableViewCellAccessoryNone;
-  }
+//  //Solving the duplicate checkmark issue
+//  if (recipes[indexPath.row]) {
+//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//  } else {
+//    cell.accessoryType = UITableViewCellAccessoryNone;
+//  }
   
   
   return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   //NSString *selectedRecipe = [recipeNames objectAtIndex:indexPath.row];
   //UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Row Selected" message:selectedRecipe delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
   
@@ -211,109 +228,51 @@
   
   
   //Adding a checkmark
-
-  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
   
   //toggling the checkmark
-  if (recipeChecked [indexPath.row]) {
-    recipeChecked [indexPath.row] = NO;
-    cell.accessoryType = UITableViewCellAccessoryNone;
-  } else {
-    recipeChecked [indexPath.row] = YES;
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-  }
-  
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//  if (recipes [indexPath.row]) {
+//    recipes [indexPath.row] = NO;
+//    cell.accessoryType = UITableViewCellAccessoryNone;
+//  } else {
+//    recipes [indexPath.row] = YES;
+//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//  }
+//  
+//  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-}
+//}
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:
-(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  
-  [recipeNames removeObjectAtIndex:indexPath.row];
-  [recipePrepTime removeObjectAtIndex:indexPath.row];
-  [recipeImages removeObjectAtIndex:indexPath.row];
-  
-  //Reload the Table View
-  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-}
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:
+//(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//  
+////  [recipeNames removeObjectAtIndex:indexPath.row];
+////  [recipePrepTime removeObjectAtIndex:indexPath.row];
+////  [recipeImages removeObjectAtIndex:indexPath.row];
+//  
+//  //Reload the Table View
+//  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+//}
 
+#pragma mark - Segue to DetailView
 //segue for the detail view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     DetailViewController *destViewController = segue.destinationViewController;
-    Recipe *recipe = [recipes objectAtIndex:indexPath.row];
+    
+    Recipe *recipe;
+    if (searchController.active) {
+      recipe = [searchResults objectAtIndex:indexPath.row];
+    } else {
+      recipe = [recipes objectAtIndex:indexPath.row];
+    }
+
     destViewController.recipe = recipe;
 
   }
 }
-
-
-#pragma mark - Search Bar
-
-- (void)filterContentForSearchText:(NSString *)searchText {
-  
-  NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
-  searchResults = [recipes filteredArrayUsingPredicate:resultsPredicate];
-  
-}
-
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
