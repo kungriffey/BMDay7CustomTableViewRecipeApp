@@ -17,11 +17,14 @@
 @implementation CustomTableViewController
 {
   NSArray *recipes;
+  NSArray *searchResults;
   
   NSMutableArray *recipeNames;
   NSMutableArray *recipeImages;
   NSMutableArray *recipePrepTime;
   BOOL recipeChecked[16];
+  
+  
   UISearchController *searchController;
 
 }
@@ -246,6 +249,16 @@
     destViewController.recipe = recipe;
 
   }
+}
+
+
+#pragma mark - Search Bar
+
+- (void)filterContentForSearchText:(NSString *)searchText {
+  
+  NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+  searchResults = [recipes filteredArrayUsingPredicate:resultsPredicate];
+  
 }
 
 
