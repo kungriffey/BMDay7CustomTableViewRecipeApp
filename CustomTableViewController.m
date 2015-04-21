@@ -22,6 +22,8 @@
   NSMutableArray *recipeImages;
   NSMutableArray *recipePrepTime;
   BOOL recipeChecked[16];
+  UISearchController *searchController;
+
 }
 
 - (void)viewDidLoad {
@@ -136,6 +138,17 @@
   recipeNames = [dict objectForKey:@"Name"];
   recipeImages = [dict objectForKey:@"Image"];
   recipePrepTime = [dict objectForKey:@"PrepTime"];
+  
+  
+  //Search Controller
+  
+  searchController  = [[UISearchController alloc]
+                       initWithSearchResultsController:nil];
+  [searchController.searchBar sizeToFit];
+  self.tableView.tableHeaderView = searchController.searchBar;
+  self.definesPresentationContext = YES;
+  
+  
   
   
     // Uncomment the following line to preserve selection between presentations.
